@@ -1,21 +1,31 @@
 import { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Button, Heading } from '@carbon/react';
 
 function App() {
   const [count, setCount] = useState(0);
 
-  const handleClick = () => {
+  const handleIncrease = () => {
     setCount(count + 1);
+  }
+
+  const handleDecrease = () => {
+    setCount(count - 1);
+  }
+
+  const handleReset = () => {
+    setCount(0);
   }
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Button to increase counter</h1>
-        <button onClick={handleClick}> Clieck Me!</button>
+      <Heading className="App-header">
+        <h1>Buttons to increase or decrease counter</h1>
+        <Button kind="danger--tertiary" onClick={handleIncrease}> Increase </Button>
+        <button onClick={handleDecrease}> Decrease </button>
+        <button onClick={handleReset}> Reset </button>
         <p> Button has been clicked {count} times.</p>
-      </header>
+      </Heading>
     </div>
   );
 }
